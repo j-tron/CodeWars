@@ -27,7 +27,7 @@ public class UniqueInOrderTests
     [Fact]
     public void EmptyTest()
     {
-        Assert.Equal("", Kata.Solution(""));
+        Assert.Equal("".ToCharArray(), Kata.Solution("".ToCharArray()));
     }
 
     [Theory]
@@ -38,7 +38,7 @@ public class UniqueInOrderTests
     }
     public static IEnumerable<object[]> GetEnumerableData()
     {
-        yield return new object[] { "AAAABBBCCDAABBB", "ABCDAB" };
+        yield return new object[] { "AAAABBBCCDAABBB".ToCharArray(), "ABCDAB".ToCharArray() };
         yield return new object[] { new int[] { 1, 2, 2, 3, 3 }, new int[] { 1, 2, 3 } };
     }
 }
