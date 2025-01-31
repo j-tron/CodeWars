@@ -6,7 +6,7 @@
 /// Given a string, detect whether or not it is a pangram.Return True if it is, False if not.Ignore numbers and punctuation.
 /// </summary>
 
-public static partial class Kata
+public static class DetectPangram
 {
     private static Dictionary<char, bool> BuildDictionary() => new()
     {
@@ -17,7 +17,7 @@ public static partial class Kata
     {'y', false}, {'z', false}
     };
 
-    public static bool IsPangram(string input)
+    public static bool Solution(string input)
     {
         var letters = BuildDictionary();
 
@@ -29,15 +29,7 @@ public static partial class Kata
             }
         }
 
-        foreach (var value in letters.Values)
-        {
-            if (!value)
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return letters.Values.All(value => value);
     }
 }
 
@@ -48,7 +40,7 @@ public class MiddleCharacterTests
     [InlineData("The quick brown fox jumps over the lazy dog.")]
     public void Given_Pangram_MiddleCharacter_Should_Return_True(string input)
     {
-        Assert.True(Kata.IsPangram(input));
+        Assert.True(DetectPangram.Solution(input));
     }
 
     [Theory]
@@ -56,6 +48,6 @@ public class MiddleCharacterTests
     [InlineData("The quick fox jumps over the lazy dog.")]
     public void Given_No_Pangram_MiddleCharacter_Should_Return_False(string input)
     {
-        Assert.False(Kata.IsPangram(input));
+        Assert.False(DetectPangram.Solution(input));
     }
 }

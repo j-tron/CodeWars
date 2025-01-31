@@ -8,10 +8,9 @@
 /// countBy(1,10)  should return  {1,2,3,4,5,6,7,8,9,10}
 /// countBy(2, 5)  should return {2,4,6,8,10}
 /// </summary>
-
-public static partial class Kata
+public static class CountBy
 {
-    public static int[] CountBy(int x, int n)
+    public static int[] Solution(int x, int n)
     {
         return Enumerable.Range(1, n).Select(i => i * x).ToArray();
     }
@@ -22,12 +21,12 @@ public class CountByTests
     [Fact]
     public static void CountBy1()
     {
-        Assert.Equal(new int[] { 1, 2, 3, 4, 5 }, Kata.CountBy(1, 5));
+        Assert.Equal(new[] { 1, 2, 3, 4, 5 }, CountBy.Solution(1, 5));
     }
 
     [Fact]
     public static void CountBy2()
     {
-        Assert.Equal(new int[] { 2, 4, 6, 8, 10 }, Kata.CountBy(2, 5));
+        Assert.Equal(new[] { 2, 4, 6, 8, 10 }, CountBy.Solution(2, 5));
     }
 }

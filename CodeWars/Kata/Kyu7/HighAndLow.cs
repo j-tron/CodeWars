@@ -1,6 +1,6 @@
 ﻿namespace CodeWars.Kata.Kyu7;
 
-public static partial class Kata
+public static class HighAndLow
 {
     public static string Solution(string numbers)
     {
@@ -15,14 +15,14 @@ public static partial class Kata
                 {
                     lowestNr = parsedNr;
                 }
+
                 if (!highestNr.HasValue || highestNr < parsedNr)
                 {
                     highestNr = parsedNr;
                 }
-
             }
         }
-        // Code here or
+
         return $"{highestNr!.Value} {lowestNr!.Value}";
     }
 }
@@ -32,11 +32,12 @@ public class HighAndLowTests
     [Fact]
     public void Test1()
     {
-        Assert.Equal("42 -9", Kata.Solution("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+        Assert.Equal("42 -9", HighAndLow.Solution("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
     }
+
     [Fact]
     public void Test2()
     {
-        Assert.Equal("3 1", Kata.Solution("1 2 3"));
+        Assert.Equal("3 1", HighAndLow.Solution("1 2 3"));
     }
 }

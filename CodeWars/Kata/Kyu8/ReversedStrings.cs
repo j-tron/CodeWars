@@ -1,6 +1,6 @@
 ﻿namespace CodeWars.Kata.Kyu8;
 
-public static partial class Kata
+public static class ReversedStrings
 {
     public static string Solution(string str)
     {

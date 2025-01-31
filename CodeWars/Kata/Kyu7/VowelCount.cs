@@ -4,9 +4,9 @@
 //We will consider a, e, i, o, u as vowels for this Kata (but not y).
 //The input string will only consist of lower case letters and/or spaces.
 
-public static partial class Kata
+public static class VowelCount
 {
-    public static int GetVowelCount(string str)
+    public static int Solution(string str)
     {
         return str.Count(x => "aeiou".Contains(x));
     }
@@ -17,6 +17,6 @@ public class VowelCountTests
     [Fact]
     public void TestCase1()
     {
-        Assert.Equal(5, Kata.GetVowelCount("abracadabra"));
+        Assert.Equal(5, VowelCount.Solution("abracadabra"));
     }
 }

@@ -5,19 +5,12 @@
 //Example: (Input --> Output)
 
 //"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)
-public static partial class Kata
+public static class IsIsogram
 {
-    public static bool IsIsogram(string str)
+    public static bool Solution(string str)
     {
         var isogramDictionary = new HashSet<char>();
-        foreach (var letter in str.ToLower().ToCharArray())
-        {
-            if (!isogramDictionary.Add(letter))
-            {
-                return false;
-            }
-        }
-        return true;
+        return str.ToLower().ToCharArray().All(letter => isogramDictionary.Add(letter));
     }
 }
 
@@ -35,7 +28,7 @@ public class IsogramTests
     public void Test(string str, bool expected)
     {
         //arrange&act
-        var actual = Kata.IsIsogram(str);
+        var actual = IsIsogram.Solution(str);
 
         //assert
         Assert.Equal(expected, actual);

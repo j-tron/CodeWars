@@ -6,7 +6,7 @@
 //uniqueInOrder("ABBCcAD") == { 'A', 'B', 'C', 'c', 'A', 'D'}
 //uniqueInOrder([1, 2, 2, 3, 3]) == { 1,2,3}
 
-public static partial class Kata
+public static class UniqueInOrder
 {
     public static IEnumerable<T> Solution<T>(IEnumerable<T> iterable)
     {
@@ -27,18 +27,19 @@ public class UniqueInOrderTests
     [Fact]
     public void EmptyTest()
     {
-        Assert.Equal("".ToCharArray(), Kata.Solution("".ToCharArray()));
+        Assert.Equal("".ToCharArray(), UniqueInOrder.Solution("".ToCharArray()));
     }
 
     [Theory]
     [MemberData(nameof(GetEnumerableData))]
-    public void Test2<T>(IEnumerable<T> indata, IEnumerable<T> result)
+    public void Test2(IEnumerable<char> indata, IEnumerable<char> result)
     {
-        Assert.Equal(Kata.Solution(indata), result);
+        Assert.Equal(result, UniqueInOrder.Solution(indata));
     }
+
     public static IEnumerable<object[]> GetEnumerableData()
     {
-        yield return new object[] { "AAAABBBCCDAABBB".ToCharArray(), "ABCDAB".ToCharArray() };
-        yield return new object[] { new int[] { 1, 2, 2, 3, 3 }, new int[] { 1, 2, 3 } };
+        yield return ["AAAABBBCCDAABBB".ToCharArray(), "ABCDAB".ToCharArray()];
+        yield return [new[] { 'A', 'B', 'B', 'C' }, new[] { 'A', 'B', 'C' }];
     }
 }

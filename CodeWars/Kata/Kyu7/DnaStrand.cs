@@ -2,23 +2,19 @@
 
 namespace CodeWars.Kata.Kyu7;
 
-/// <summary>
-/// Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the development and functioning of living organisms.
+// <summary>
+// Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the development and functioning of living organisms.
 //If you want to know more: http://en.wikipedia.org/wiki/DNA
-
 //In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G".
 //Your function receives one side of the DNA(string, except for Haskell); you need to return the other complementary side.DNA strand is never empty or there is no DNA at all (again, except for Haskell).
-
 //More similar exercise are found here: http://rosalind.info/problems/list-view/ (source)
-
 //Example: (input --> output)
-
 //"ATTGC" --> "TAACG"
 //"GTAT" --> "CATA"
-/// </summary>
-public static partial class Kata
+// </summary>
+public static class DnaStrand
 {
-    public static string MakeComplement(string dna)
+    public static string Solution(string dna)
     {
         StringBuilder sb = new();
 
@@ -26,7 +22,7 @@ public static partial class Kata
         {
             switch (symbol)
             {
-                case 'A': 
+                case 'A':
                     sb.Append('T');
                     break;
                 case 'T':
@@ -56,9 +52,10 @@ public class DnaStrandTest
     [InlineData("GTAT", "CATA")]
     [InlineData("AAGG", "TTCC")]
     [InlineData("CGCG", "GCGC")]
-    [InlineData("GTATCGATCGATCGATCGATTATATTTTCGACGAGATTTAAATATATATATATACGAGAGAATACAGATAGACAGATTA", "CATAGCTAGCTAGCTAGCTAATATAAAAGCTGCTCTAAATTTATATATATATATGCTCTCTTATGTCTATCTGTCTAAT")]
+    [InlineData("GTATCGATCGATCGATCGATTATATTTTCGACGAGATTTAAATATATATATATACGAGAGAATACAGATAGACAGATTA",
+        "CATAGCTAGCTAGCTAGCTAATATAAAAGCTGCTCTAAATTTATATATATATATGCTCTCTTATGTCTATCTGTCTAAT")]
     public void SampleTests(string dna, string expected)
     {
-        Assert.Equal(expected, Kata.MakeComplement(dna));
+        Assert.Equal(expected, DnaStrand.Solution(dna));
     }
 }

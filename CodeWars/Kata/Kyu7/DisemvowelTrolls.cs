@@ -1,8 +1,8 @@
 ﻿namespace CodeWars.Kata.Kyu7;
 
-public static partial class Kata
+public static class DisemvowelTrolls
 {
-    public static string Disemvowel(string str)
+    public static string Solution(string str)
     {
         return new string(str.Where(c => !"aeiouAEIOU".Contains(c)).ToArray());
     }
@@ -14,11 +14,11 @@ public class DisemvowelTrollsTests
     public void Disemvowel_ShouldRemoveVowelsFromString()
     {
         // Arrange
-        string input = "Hello World!";
-        string expected = "Hll Wrld!";
+        var input = "Hello World!";
+        var expected = "Hll Wrld!";
 
         // Act
-        string result = Kata.Disemvowel(input);
+        var result = DisemvowelTrolls.Solution(input);
 
         // Assert
         Assert.Equal(expected, result);
@@ -28,11 +28,11 @@ public class DisemvowelTrollsTests
     public void Disemvowel_ShouldHandleEmptyString()
     {
         // Arrange
-        string input = "";
-        string expected = "";
+        const string input = "";
+        const string expected = "";
 
         // Act
-        string result = Kata.Disemvowel(input);
+        var result = DisemvowelTrolls.Solution(input);
 
         // Assert
         Assert.Equal(expected, result);
@@ -42,11 +42,11 @@ public class DisemvowelTrollsTests
     public void Disemvowel_ShouldHandleStringWithNoVowels()
     {
         // Arrange
-        string input = "Hll Wrld!";
-        string expected = "Hll Wrld!";
+        const string input = "Hll Wrld!";
+        const string expected = "Hll Wrld!";
 
         // Act
-        string result = Kata.Disemvowel(input);
+        var result = DisemvowelTrolls.Solution(input);
 
         // Assert
         Assert.Equal(expected, result);
@@ -56,14 +56,13 @@ public class DisemvowelTrollsTests
     public void Disemvowel_ShouldHandleStringWithOnlyVowels()
     {
         // Arrange
-        string input = "aeiouAEIOU";
-        string expected = "";
+        const string input = "aeiouAEIOU";
+        const string expected = "";
 
         // Act
-        string result = Kata.Disemvowel(input);
+        var result = DisemvowelTrolls.Solution(input);
 
         // Assert
         Assert.Equal(expected, result);
     }
 }
-
