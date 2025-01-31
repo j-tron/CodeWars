@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Kata\Kyu4\" />
-  </ItemGroup>
-
 </Project>
