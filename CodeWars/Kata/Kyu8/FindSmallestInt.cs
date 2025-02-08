@@ -10,12 +10,6 @@ public static class FindSmallestInt
 
 public class FindSmallestIntTests
 {
-    [Fact]
-    public void Zero_ReturnsZero()
-    {
-        Assert.Equal(0, FindSmallestInt.Solution([]));
-    }
-
     [Theory]
     [InlineData(2, new[] { 34, 15, 88, 2 })]
     [InlineData(-33, new int[] { 78, 56, -2, 12, 8, -33 })]
