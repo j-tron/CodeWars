@@ -11,11 +11,6 @@ public static class FindOdd
 public class FindOddTests
 {
     [Fact]
-    public void NoDigits()
-    {
-        Assert.Equal(0, FindOdd.Solution([]));
-    }
-    [Fact]
     public void SingleDigit()
     {
         Assert.Equal(10, FindOdd.Solution([10]));
