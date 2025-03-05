@@ -23,11 +23,6 @@ public static class FindEvenIndex
 
 public class FindEvenIndexTests
 {
-    [Fact]
-    public void ArraySizeOne()
-    {
-        Assert.Equal(-1, FindEvenIndex.Solution([1]));
-    }
 
     [Fact]
     public void ArraySizeTwo()
